@@ -72,7 +72,9 @@ public class Chat {
         addTriples();
         predicates.put("topic", MagicStrings.default_topic);
         predicates.put("jsenabled", MagicStrings.js_enabled);
-        if (MagicBooleans.trace_mode) System.out.println("Chat Session Created for bot "+bot.name);
+        if (MagicBooleans.trace_mode) {
+            System.out.println("Chat Session Created for bot "+bot.name);
+        }
     }
 
     /**
@@ -169,7 +171,9 @@ public class Chat {
         if (repetition) {input = MagicStrings.repetition_detected;}
 
         String response;
-
+        
+        
+        // Julien: here:
         response = AIMLProcessor.respond(input, that, topic, this);
 		//MagicBooleans.trace("in chat.respond(), response: " + response);
         String normResponse = bot.preProcessor.normalize(response);
